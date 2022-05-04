@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(timeout("30s"));
 
+app.get("/test", (req, res) => {
+  res.send("API is running");
+});
+
 // Setup routes.
 app.use("/api/test", require("./routes/testRoutes"));
 
