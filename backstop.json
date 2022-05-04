@@ -28,7 +28,15 @@
   "report": ["browser"],
   "engine": "puppeteer",
   "engineOptions": {
-    "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "args": [
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+      "--disable-setuid-sandbox",
+      "--no-first-run",
+      "--no-sandbox",
+      "--no-zygote",
+      "--single-process"
+    ]
   },
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
