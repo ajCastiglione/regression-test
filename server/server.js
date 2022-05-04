@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(timeout("30s"));
 
 app.get("/test", (req, res) => {
+  console.log("/test Endpoint hit");
   res.send("API is running");
 });
 

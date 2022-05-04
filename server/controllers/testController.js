@@ -26,11 +26,12 @@ const captureScreenshots = asyncHandler(async (req, res) => {
       label: page.label,
       url: page.url,
       delay: 0,
-      hideSelectors: [],
       removeSelectors: [".pum-overlay", ".back-to-top"],
       selectorExpansion: true,
     });
   }
+  
+  console.log(backstopConfig);
 
   try {
     // Run backstop reference.
