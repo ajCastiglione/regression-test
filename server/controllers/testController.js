@@ -31,8 +31,6 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     });
   }
 
-  console.log(backstopConfig);
-
   try {
     // Run backstop reference.
     backstop("reference", { config: backstopConfig });
@@ -40,6 +38,7 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     // Let user know the reference is being generated.
     res.status(200).send({
       message: "Reference is being generated...",
+      pages,
     });
   } catch (error) {
     console.error(error);

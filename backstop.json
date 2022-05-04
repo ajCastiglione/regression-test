@@ -13,7 +13,7 @@
     {
       "label": "My Homepage",
       "url": "https://staging-gotmold.kinsta.cloud/",
-      "delay": 2000,
+      "delay": 5000,
       "removeSelectors": [".pum-overlay", ".back-to-top"],
       "selectorExpansion": true
     }
