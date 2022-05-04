@@ -25,12 +25,12 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     backstopConfig.scenarios.push({
       label: page.label,
       url: page.url,
-      delay: 0,
+      delay: 2000,
       removeSelectors: [".pum-overlay", ".back-to-top"],
       selectorExpansion: true,
     });
   }
-  
+
   console.log(backstopConfig);
 
   try {
