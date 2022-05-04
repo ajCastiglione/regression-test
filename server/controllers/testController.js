@@ -35,19 +35,19 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     });
   }
 
-  // Get reference screenshots.
-  const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
-  const files = fs.readdirSync(referencePath);
-
-  //listing all files using forEach
-  files.forEach(function (file) {
-    // Do whatever you want to do with the file
-    console.log(file);
-  });
-
   try {
     // Run backstop reference.
-    backstop("reference", { config: backstopConfig }).then(() => {});
+    backstop("reference", { config: backstopConfig }).then(() => {
+      // Get reference screenshots.
+      const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
+      const files = fs.readdirSync(referencePath);
+
+      //listing all files using forEach
+      files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file);
+      });
+    });
 
     // Let user know the reference is being generated.
     res.status(200).send({
