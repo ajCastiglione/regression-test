@@ -2,6 +2,10 @@ const asyncHandler = require("express-async-handler");
 const backstop = require("backstopjs");
 const { getPageUrls } = require("../utils/utils");
 
+// File system handling.
+const path = require("path");
+const fs = require("fs");
+
 // Backstop configuration file.
 const backstopConfig = require("../../backstop.json");
 
@@ -31,9 +35,19 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     });
   }
 
+  // Get reference screenshots.
+  const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
+  const files = fs.readdirSync(referencePath);
+
+  //listing all files using forEach
+  files.forEach(function (file) {
+    // Do whatever you want to do with the file
+    console.log(file);
+  });
+
   try {
     // Run backstop reference.
-    backstop("reference", { config: backstopConfig });
+    backstop("reference", { config: backstopConfig }).then(() => {});
 
     // Let user know the reference is being generated.
     res.status(200).send({
