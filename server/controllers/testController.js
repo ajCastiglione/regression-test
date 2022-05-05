@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const backstop = require("backstopjs");
+const zip = require("express-zip");
 const { getPageUrls } = require("../utils/utils");
 
 // File system handling.
@@ -37,23 +38,25 @@ const captureScreenshots = asyncHandler(async (req, res) => {
 
   try {
     // Run backstop reference.
-    backstop("reference", { config: backstopConfig }).then(() => {
-      // Get reference screenshots.
-      const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
-      const files = fs.readdirSync(referencePath);
+    await backstop("reference", { config: backstopConfig });
 
-      //listing all files using forEach
-      files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
+    // Get file paths for test screenshots.
+    const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
+    const files = fs.readdirSync(referencePath);
+
+    let filePaths = [];
+
+    //listing all files using forEach
+    files.forEach(function (file) {
+      // Do whatever you want to do with the file
+      filePaths.push({
+        path: path.join(referencePath, file),
+        name: file,
       });
     });
 
-    // Let user know the reference is being generated.
-    res.status(200).send({
-      message: "Reference is being generated...",
-      pages,
-    });
+    // Send user zip files.
+    res.status(200).send(filePaths);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
