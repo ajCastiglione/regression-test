@@ -31,7 +31,7 @@ const captureScreenshots = asyncHandler(async (req, res) => {
       label: page.label,
       url: page.url,
       delay: 2000,
-      removeSelectors: [".pum-overlay", ".back-to-top"],
+      removeSelectors: [".pum-overlay", ".back-to-top", ".needsclick"],
       selectorExpansion: true,
     });
   }
