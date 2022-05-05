@@ -50,7 +50,7 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     files.forEach(function (file) {
       // Do whatever you want to do with the file
       filePaths.push({
-        path: path.join(referencePath, file),
+        path: `${req.protocol}://${req.get("host")}/files/` + file,
         name: file,
       });
     });

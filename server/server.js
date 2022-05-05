@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const PORT = process.env.PORT || 5000;
 require("dotenv").config();
@@ -15,6 +16,9 @@ app.get("/test", (req, res) => {
 
 // Setup routes.
 app.use("/api/test", require("./routes/testRoutes"));
+
+// Set static route so user can access the files.
+app.use("/files", express.static(path.join(__dirname, "../backstop_data/bitmaps_reference")));
 
 // Start server.
 app.listen(PORT, () => {
