@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const { updateConfig } = require("../middleware/updateConfig");
 
-const { captureScreenshots } = require("../controllers/testController");
+const { captureScreenshots, compareScreenshots } = require("../controllers/testController");
 
-router.get("/", captureScreenshots);
+router.get("/capture", updateConfig, captureScreenshots);
+router.get("/compare", updateConfig, compareScreenshots);
 
 module.exports = router;

@@ -15,7 +15,8 @@
       "url": "https://staging-gotmold.kinsta.cloud/",
       "delay": 2000,
       "removeSelectors": [".pum-overlay", ".back-to-top", ".needsclick"],
-      "selectorExpansion": true
+      "selectorExpansion": true,
+      "selectors": ["document"]
     }
   ],
   "paths": {
@@ -41,5 +42,7 @@
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
   "debug": false,
-  "debugWindow": false
+  "debugWindow": false,
+  "misMatchThreshold": 0.05,
+  "requireSameDimensions": false
 }

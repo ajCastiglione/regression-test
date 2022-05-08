@@ -18,7 +18,12 @@ app.get("/test", (req, res) => {
 app.use("/api/test", require("./routes/testRoutes"));
 
 // Set static route so user can access the files.
-app.use("/files", express.static(path.join(__dirname, "../backstop_data/bitmaps_reference")));
+app.use("/report", express.static(path.join(__dirname, "../backstop_data/html_report")));
+app.use("/bitmaps_test", express.static(path.join(__dirname, "../backstop_data/bitmaps_test")));
+app.use(
+  "/bitmaps_reference",
+  express.static(path.join(__dirname, "../backstop_data/bitmaps_reference"))
+);
 
 // Start server.
 app.listen(PORT, () => {
