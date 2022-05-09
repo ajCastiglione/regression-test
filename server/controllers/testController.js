@@ -13,25 +13,16 @@ const fs = require("fs");
 const captureScreenshots = asyncHandler(async (req, res) => {
   try {
     // Run backstop reference.
-    await backstop("reference", { config: req.configurationFile });
+    backstop("reference", { config: req.configurationFile });
 
-    // Get file paths for test screenshots.
-    const referencePath = path.join(__dirname, "../../backstop_data/bitmaps_reference");
-    const files = fs.readdirSync(referencePath);
-
-    let filePaths = [];
-
-    //listing all files using forEach
-    files.forEach(function (file) {
-      // Do whatever you want to do with the file
-      filePaths.push({
-        path: `${req.protocol}://${req.get("host")}/bitmaps_reference/` + file,
-        name: file,
-      });
-    });
+    await setTimeout(() => {
+      console.log("Stalling so Heroku doesn't timeout...");
+    }, 15000);
 
     // Send user zip files.
-    res.status(200).send(filePaths);
+    res.status(200).send({
+      message: "Reference screenshots are being captured.",
+    });
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
