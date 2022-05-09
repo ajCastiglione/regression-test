@@ -43,7 +43,7 @@
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false,
-  "misMatchThreshold": 0.1,
+  "misMatchThreshold": 40.0,
   "requireSameDimensions": false,
   "captureBeyondViewport": false
 }
