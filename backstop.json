@@ -41,7 +41,7 @@
       "--disable-infobars=true"
     ]
   },
-  "asyncCaptureLimit": 3,
+  "asyncCaptureLimit": 5,
   "asyncCompareLimit": 1,
   "debug": false,
   "debugWindow": false,
