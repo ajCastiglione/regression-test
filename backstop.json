@@ -36,7 +36,9 @@
       "--no-first-run",
       "--no-sandbox",
       "--no-zygote",
-      "--single-process"
+      "--single-process",
+      "--force-device-scale-factor=1",
+      "--disable-infobars=true"
     ]
   },
   "asyncCaptureLimit": 3,
