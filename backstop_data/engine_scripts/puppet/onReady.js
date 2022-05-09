@@ -22,7 +22,6 @@ module.exports = async (page, scenario, vp) => {
           clearInterval(timer);
           if (popup) {
             popup.style.display = "none";
-            console.log("Popup Found: " + popup);
             popup.remove();
           }
           resolve();
@@ -30,5 +29,5 @@ module.exports = async (page, scenario, vp) => {
       }, 100);
     });
   });
-  await page.waitForTimeout(800);
+  await page.waitForTimeout(750);
 };

@@ -3,8 +3,8 @@
   "viewports": [
     {
       "label": "desktop",
-      "width": 1920,
-      "height": 1080
+      "width": 1440,
+      "height": 1024
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -43,6 +43,7 @@
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false,
-  "misMatchThreshold": 0.05,
-  "requireSameDimensions": false
+  "misMatchThreshold": 0.1,
+  "requireSameDimensions": false,
+  "captureBeyondViewport": false
 }
