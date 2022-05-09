@@ -42,7 +42,7 @@
     ]
   },
   "asyncCaptureLimit": 3,
-  "asyncCompareLimit": 50,
+  "asyncCompareLimit": 1,
   "debug": false,
   "debugWindow": false,
   "misMatchThreshold": 30.0,
