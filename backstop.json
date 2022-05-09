@@ -39,11 +39,11 @@
       "--single-process"
     ]
   },
-  "asyncCaptureLimit": 5,
+  "asyncCaptureLimit": 3,
   "asyncCompareLimit": 50,
   "debug": false,
   "debugWindow": false,
-  "misMatchThreshold": 40.0,
+  "misMatchThreshold": 30.0,
   "requireSameDimensions": false,
   "captureBeyondViewport": false
 }

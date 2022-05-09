@@ -15,14 +15,14 @@ const captureScreenshots = asyncHandler(async (req, res) => {
     // Run backstop reference.
     backstop("reference", { config: req.configurationFile });
 
-    await setTimeout(() => {
+    setTimeout(() => {
       console.log("Stalling so Heroku doesn't timeout...");
-    }, 15000);
 
-    // Send user zip files.
-    res.status(200).send({
-      message: "Reference screenshots are being captured.",
-    });
+      // Send user notification that screenshots are being generated.
+      res.status(200).send({
+        message: "Reference screenshots are being captured.",
+      });
+    }, 15000);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
@@ -39,14 +39,14 @@ const compareScreenshots = asyncHandler(async (req, res) => {
     // Run backstop test.
     backstop("test", { config: req.configurationFile });
 
-    await setTimeout(() => {
+    setTimeout(() => {
       console.log("Stalling so Heroku doesn't timeout...");
-    }, 15000);
 
-    // Send user a message letting them know the test was ran.
-    res.status(200).send({
-      message: `Visit ${req.protocol}://${req.get("host")}/report to view the differences.`,
-    });
+      // Send user a message letting them know the test was ran.
+      res.status(200).send({
+        message: `Visit ${req.protocol}://${req.get("host")}/report to view the differences.`,
+      });
+    }, 15000);
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
