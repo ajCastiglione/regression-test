@@ -37,7 +37,11 @@ const captureScreenshots = asyncHandler(async (req, res) => {
 const compareScreenshots = asyncHandler(async (req, res) => {
   try {
     // Run backstop test.
-    await backstop("test", { config: req.configurationFile });
+    backstop("test", { config: req.configurationFile });
+
+    await setTimeout(() => {
+      console.log("Stalling so Heroku doesn't timeout...");
+    }, 15000);
 
     // Send user a message letting them know the test was ran.
     res.status(200).send({
