@@ -50,7 +50,7 @@ const compareScreenshots = asyncHandler(async (req, res) => {
 
     // Send user a message letting them know the test was ran.
     res.status(200).send({
-      message: "Screenshots have been compared.",
+      message: `Visit ${req.protocol}://${req.get("host")}/report to view the differences.`,
     });
   } catch (error) {
     console.error(error);
